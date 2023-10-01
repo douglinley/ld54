@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2w4jccxdvp0x"]
+
+[ext_resource type="PackedScene" uid="uid://c6clly65cn4h6" path="res://prefabs/player.tscn" id="1_hniis"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_m8q82"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="2_4htci"]
+[ext_resource type="FontVariation" uid="uid://bwhl1hhtho73m" path="res://assets/fonts/MinecraftRegular.tres" id="4_gwhwd"]
+
+[node name="GameManager" type="Node2D"]
+script = ExtResource("1_m8q82")
+
+[node name="Player" parent="." instance=ExtResource("1_hniis")]
+position = Vector2(146.8, 389.6)
+script = ExtResource("2_4htci")
+
+[node name="MousePositionLabel" type="Label" parent="."]
+offset_left = 11.0
+offset_top = 11.0
+offset_right = 152.0
+offset_bottom = 34.0
+theme_override_fonts/font = ExtResource("4_gwhwd")
+text = "Mouse X: 0, Y: 0"
+vertical_alignment = 1

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6clly65cn4h6"]
+
+[ext_resource type="Texture2D" uid="uid://cssjva46ulfdx" path="res://assets/ship/ship_0000_Layer-1.png" id="1_bvdk5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fwy7o"]
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_bvdk5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_fwy7o")

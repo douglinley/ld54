@@ -1,0 +1,6 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://bwhl1hhtho73m"]
+
+[ext_resource type="FontFile" uid="uid://cok26tuae2ydb" path="res://assets/fonts/MinecraftRegular-Bmg3.otf" id="1_63quq"]
+
+[resource]
+base_font = ExtResource("1_63quq")

@@ -9,7 +9,7 @@
 script = ExtResource("1_m8q82")
 
 [node name="Player" parent="." instance=ExtResource("1_hniis")]
-position = Vector2(146.8, 389.6)
+position = Vector2(321, 389.6)
 script = ExtResource("2_4htci")
 
 [node name="CurrentScoreLabel" type="Label" parent="."]

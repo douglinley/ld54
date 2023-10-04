@@ -12,11 +12,22 @@ script = ExtResource("1_m8q82")
 position = Vector2(146.8, 389.6)
 script = ExtResource("2_4htci")
 
-[node name="MousePositionLabel" type="Label" parent="."]
+[node name="CurrentScoreLabel" type="Label" parent="."]
 offset_left = 11.0
 offset_top = 11.0
 offset_right = 152.0
 offset_bottom = 34.0
 theme_override_fonts/font = ExtResource("4_gwhwd")
-text = "Mouse X: 0, Y: 0"
+text = "Score: 0"
 vertical_alignment = 1
+
+[node name="PlayerSpawn" type="Marker2D" parent="."]
+position = Vector2(320, 405)
+
+[node name="AsteroidSpawnerContainer" type="Node2D" parent="."]
+
+[node name="Spawn1" type="Marker2D" parent="AsteroidSpawnerContainer"]
+
+[node name="Spawn2" type="Marker2D" parent="AsteroidSpawnerContainer"]
+
+[node name="Spawn3" type="Marker2D" parent="AsteroidSpawnerContainer"]

@@ -34,3 +34,5 @@ position = Vector2(320, -50)
 
 [node name="Spawn3" type="Marker2D" parent="AsteroidSpawnerContainer"]
 position = Vector2(570, -50)
+
+[node name="AsteroidContainer" type="Node2D" parent="."]

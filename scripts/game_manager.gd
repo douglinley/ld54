@@ -4,7 +4,7 @@ const Utils = preload("res://scripts/utils.gd")
 
 @onready var player = $Player
 @onready var player_spawn = $PlayerSpawn
-@onready var asteroid_spawn_container = $AsteroidSpawnContainer
+@onready var asteroid_spawn_container = $AsteroidSpawnerContainer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

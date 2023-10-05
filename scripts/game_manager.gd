@@ -33,10 +33,15 @@ func get_asteroid_spawn_markers() -> Array:
 
 func get_random_marker(markers: Array) -> Marker2D:
 	var rng = RandomNumberGenerator.new()
-	return markers[rng.Randf_range(0, markers.size() - 1)]
+	return markers[rng.randf_range(0, markers.size())]
 	
 
 func _on_spawn_timer_timeout():
+	# 10% change to spawn
+	if !Utils.check_probability(100):
+		print("no spawn")
+		return
+		
 	var marker = get_random_marker(get_asteroid_spawn_markers())
 	var asteroid: Area2D = asteroid_scene.instantiate()
 	asteroid.global_position = marker.global_position

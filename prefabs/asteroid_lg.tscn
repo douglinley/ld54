@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://by5mwi5dpucqf"]
+[gd_scene load_steps=5 format=3 uid="uid://by5mwi5dpucqf"]
 
+[ext_resource type="Script" path="res://prefabs/asteroid_lg.gd" id="1_42dub"]
 [ext_resource type="Texture2D" uid="uid://cgp6uvtdko4gu" path="res://assets/asteroid-01.png" id="1_wiscm"]
 [ext_resource type="PackedScene" uid="uid://c8he4c32bhryd" path="res://components/value_component.tscn" id="2_woktq"]
 
@@ -7,6 +8,7 @@
 radius = 22.0227
 
 [node name="AsteroidLarge" type="Area2D"]
+script = ExtResource("1_42dub")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_wiscm")

@@ -33,7 +33,7 @@ position = Vector2(71, -51)
 position = Vector2(320, -50)
 
 [node name="Spawn3" type="Marker2D" parent="AsteroidSpawnerContainer"]
-position = Vector2(570, -50)
+position = Vector2(531, -54)
 
 [node name="Spawn4" type="Marker2D" parent="AsteroidSpawnerContainer"]
 position = Vector2(124, -53)
@@ -49,6 +49,12 @@ position = Vector2(385, -50)
 
 [node name="Spawn8" type="Marker2D" parent="AsteroidSpawnerContainer"]
 position = Vector2(469, -52)
+
+[node name="Spawn9" type="Marker2D" parent="AsteroidSpawnerContainer"]
+position = Vector2(428, -58)
+
+[node name="Spawn10" type="Marker2D" parent="AsteroidSpawnerContainer"]
+position = Vector2(270, -54)
 
 [node name="AsteroidContainer" type="Node2D" parent="."]
 

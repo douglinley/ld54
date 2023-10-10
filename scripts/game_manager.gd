@@ -2,7 +2,16 @@ extends Node2D
 
 const Utils = preload("res://scripts/utils.gd")
 
-var asteroid_scene : PackedScene = preload("res://Prefabs/asteroid_lg.tscn")
+var asteroid_lg_scene : PackedScene = preload("res://Prefabs/asteroid_lg.tscn")
+var asteroid_md1_scene : PackedScene = preload("res://Prefabs/asteroid_md_1.tscn")
+var asteroid_ms2_scene : PackedScene = preload("res://prefabs/asteroid_md_2.tscn")
+var asteroid_sm_scene : PackedScene = preload("res://Prefabs/asteroid_sm.tscn")
+
+var asteroid_scenes: Array = [
+	asteroid_lg_scene, 
+	asteroid_md1_scene, 
+	asteroid_ms2_scene, 
+	asteroid_sm_scene]
 
 @onready var player = $Player
 @onready var player_spawn = $PlayerSpawn
@@ -35,6 +44,10 @@ func get_random_marker(markers: Array) -> Marker2D:
 	var rng = RandomNumberGenerator.new()
 	return markers[rng.randf_range(0, markers.size())]
 	
+func get_random_asteroid_scene(scenes: Array) -> PackedScene:
+	var rng = RandomNumberGenerator.new()
+	return scenes[rng.randf_range(0, scenes.size())]
+	
 
 func _on_spawn_timer_timeout():
 	# 10% change to spawn
@@ -43,6 +56,8 @@ func _on_spawn_timer_timeout():
 		return
 		
 	var marker = get_random_marker(get_asteroid_spawn_markers())
+	var asteroid_scene = get_random_asteroid_scene(asteroid_scenes)
+	
 	var asteroid: Area2D = asteroid_scene.instantiate()
 	asteroid.global_position = marker.global_position
 	asteroid_container.add_child(asteroid)

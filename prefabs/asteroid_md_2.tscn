@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://oxc6malb5rru"]
+[gd_scene load_steps=5 format=3 uid="uid://oxc6malb5rru"]
 
 [ext_resource type="Script" path="res://prefabs/asteroid_md_2.gd" id="1_33vuq"]
 [ext_resource type="Texture2D" uid="uid://cbftx7wao58nb" path="res://assets/asteroid-03.png" id="1_r6n2a"]
+[ext_resource type="PackedScene" uid="uid://c8he4c32bhryd" path="res://components/value_component.tscn" id="3_7dbqv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3quak"]
 
@@ -14,3 +15,12 @@ texture = ExtResource("1_r6n2a")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 0)
 shape = SubResource("CircleShape2D_3quak")
+
+[node name="ValueComponent" parent="." instance=ExtResource("3_7dbqv")]
+value = 75
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(1, 0.500001)
+scale = Vector2(1, 0.95)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -2,6 +2,8 @@ extends Area2D
 
 class_name Asteroid
 
+signal score(value)
+
 @onready var x_speed_min := -10
 @onready var y_speed_min := 10
 

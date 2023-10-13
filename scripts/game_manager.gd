@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 const Utils = preload("res://scripts/utils.gd")
 
@@ -13,10 +13,11 @@ var asteroid_scenes: Array = [
 	asteroid_ms2_scene, 
 	asteroid_sm_scene]
 
-@onready var player = $Player
-@onready var player_spawn = $PlayerSpawn
-@onready var asteroid_spawn_container = $AsteroidSpawnerContainer
-@onready var asteroid_container = $AsteroidContainer
+@onready var player := $Player
+@onready var player_spawn := $PlayerSpawn
+@onready var asteroid_spawn_container := $AsteroidSpawnerContainer
+@onready var asteroid_container := $AsteroidContainer
+@onready var score := 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -52,7 +53,6 @@ func get_random_asteroid_scene(scenes: Array) -> PackedScene:
 func _on_spawn_timer_timeout():
 	# 10% change to spawn
 	if !Utils.check_probability(100):
-		print("no spawn")
 		return
 		
 	var marker = get_random_marker(get_asteroid_spawn_markers())
@@ -60,5 +60,9 @@ func _on_spawn_timer_timeout():
 	
 	var asteroid: Area2D = asteroid_scene.instantiate()
 	asteroid.global_position = marker.global_position
+	asteroid.score.connect(_on_score)
 	asteroid_container.add_child(asteroid)
-	print("spawn!")
+
+func _on_score(value):
+	score += value
+	$CurrentScoreLabel.text = "Score: %d" % [score]

@@ -1,9 +1,39 @@
-[gd_scene load_steps=5 format=3 uid="uid://d2w4jccxdvp0x"]
+[gd_scene load_steps=8 format=3 uid="uid://d2w4jccxdvp0x"]
 
 [ext_resource type="PackedScene" uid="uid://c6clly65cn4h6" path="res://prefabs/player.tscn" id="1_hniis"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_m8q82"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="2_4htci"]
 [ext_resource type="FontVariation" uid="uid://bwhl1hhtho73m" path="res://assets/fonts/MinecraftRegular.tres" id="4_gwhwd"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ww8nq"]
+emission_shape = 3
+emission_box_extents = Vector3(320, 0, 0)
+particle_flag_disable_z = true
+gravity = Vector3(0, 15, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_q7plp"]
+emission_shape = 3
+emission_box_extents = Vector3(320, 0, 0)
+particle_flag_disable_z = true
+spread = 0.0
+gravity = Vector3(0, 25, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 2.0
+scale_max = 2.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_duf3w"]
+emission_shape = 3
+emission_box_extents = Vector3(320, 0, 0)
+particle_flag_disable_z = true
+spread = 0.0
+gravity = Vector3(0, 40, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 3.0
+scale_max = 3.0
 
 [node name="GameManager" type="Node2D"]
 script = ExtResource("1_m8q82")
@@ -61,5 +91,30 @@ position = Vector2(270, -54)
 [node name="SpawnTimer" type="Timer" parent="."]
 process_callback = 0
 wait_time = 0.25
+
+[node name="StarfieldContainer" type="Node2D" parent="."]
+
+[node name="StafieldFar" type="GPUParticles2D" parent="StarfieldContainer"]
+z_index = -99
+position = Vector2(320, -100)
+amount = 350
+process_material = SubResource("ParticleProcessMaterial_ww8nq")
+lifetime = 8.0
+
+[node name="StarfieldMid" type="GPUParticles2D" parent="StarfieldContainer"]
+z_index = -99
+position = Vector2(320, -100)
+amount = 250
+process_material = SubResource("ParticleProcessMaterial_q7plp")
+lifetime = 8.0
+preprocess = 20.0
+
+[node name="StarfieldClose" type="GPUParticles2D" parent="StarfieldContainer"]
+z_index = -99
+position = Vector2(320, -100)
+amount = 150
+process_material = SubResource("ParticleProcessMaterial_duf3w")
+lifetime = 7.0
+preprocess = 10.0
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

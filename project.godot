@@ -21,6 +21,10 @@ window/size/viewport_height=480
 window/stretch/mode="canvas_items"
 window/stretch/aspect="ignore"
 
+[editor]
+
+movie_writer/movie_file="c:/Users/dwlin/Videos/footage.avi"
+
 [input]
 
 exit={

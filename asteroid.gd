@@ -24,3 +24,4 @@ func init() -> void:
 func run(delta) -> void:		
 	position.x += x_speed * delta
 	position.y += y_speed * delta
+	rotation += x_speed * delta * .01	

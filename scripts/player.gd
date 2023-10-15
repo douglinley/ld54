@@ -1,9 +1,11 @@
 extends CharacterBody2D
 
 @export var speed = 300.0
+@onready var animation = $AnimationPlayer
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	animation.play("FlyStraight")
 
 
 func _physics_process(delta):
